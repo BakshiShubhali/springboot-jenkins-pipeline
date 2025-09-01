@@ -21,6 +21,22 @@ pipeline {
                 sh 'mvn compile'
             }
         }
+        stage('Sonar Analysis') {
+             environment {
+                 SCANNER_HOME = tool 'Sonar-scanner'
+             }
+             steps {
+                 withSonarQubeEnv('sonarserver') {
+                     sh '''
+                         $SCANNER_HOME/bin/sonar-scanner \
+                         -Dsonar.organization=ShubhaliBakshi \
+                         -Dsonar.projectName=SpringBootPet \
+                         -Dsonar.projectKey=ShubhaliBakshi_springboot-petproject \
+                         -Dsonar.java.binaries=.
+                     '''
+                 }
+             }
+        }
         stage('Maven Package') {
             steps {
                 echo "This is Maven Package Stage"
@@ -29,3 +45,4 @@ pipeline {
         }
     }
 }
+
