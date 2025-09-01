@@ -24,7 +24,7 @@ pipeline {
         stage('Maven Package') {
             steps {
                 echo "This is Maven Package Stage"
-                sh 'mvn Package'
+                sh 'mvn package'
             }
         }
     }
