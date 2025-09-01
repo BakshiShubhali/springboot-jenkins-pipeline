@@ -79,17 +79,18 @@ pipeline {
                 }
             }
         }
-         stage('Docker Push to ACR'){
-            steps {
-                script {
-                    echo "Docker Push image to Registry" 
-                    sh '''
-                    docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${FULL_IMAGE_NAME}
-                    docker push ${FULL_IMAGE_NAME}
-                    '''
-                }
-            }
-        }
     }
 }
+
+//  stage('Docker Push to ACR'){
+        //     steps {
+        //         script {
+        //             echo "Docker Push image to Registry" 
+        //             sh '''
+        //             docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${FULL_IMAGE_NAME}
+        //             docker push ${FULL_IMAGE_NAME}
+        //             '''
+        //         }
+        //     }
+        // }
 
