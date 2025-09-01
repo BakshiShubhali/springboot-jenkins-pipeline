@@ -30,7 +30,7 @@ pipeline {
                      sh '''
                          $SCANNER_HOME/bin/sonar-scanner \
                          -Dsonar.organization=ShubhaliBakshi \
-                         -Dsonar.projectName=SpringBootPet \
+                         -Dsonar.projectName=springboot-petproject \
                          -Dsonar.projectKey=ShubhaliBakshi_springboot-petproject \
                          -Dsonar.java.binaries=.
                      '''
