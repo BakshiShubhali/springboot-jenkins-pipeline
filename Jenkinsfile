@@ -13,7 +13,7 @@ pipeline {
         stage('Maven Compile') {
             steps {
                 echo "This is Maven Compile Stage"
-                bat 'mvn clean compile'
+                sh 'mvn clean compile'
             }
         }
     }
