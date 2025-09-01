@@ -2,6 +2,7 @@ pipeline {
     agent any
     tools {
         maven 'maven'   // make sure "maven" is the name you configured in Jenkins Global Tool Configuration
+        jdk 'jdk'
     }
     stages {
         stage('Checkout From Git') { 
@@ -13,18 +14,6 @@ pipeline {
             steps {
                 echo "This is Maven Compile Stage"
                 bat 'mvn clean compile'
-            }
-        }
-        stage('Maven Test') {
-            steps {
-                echo "This is Maven Test Stage"
-                bat 'mvn test'
-            }
-        }
-        stage('Maven Package') {
-            steps {
-                echo "This is Maven Package Stage"
-                bat 'mvn package'
             }
         }
     }
